@@ -1,0 +1,126 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #E6F0FA;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(135deg, transparent 40%, rgba(0, 59, 126, 0.03) 40%),
+      repeating-linear-gradient(90deg, transparent, transparent 48px, rgba(0, 59, 126, 0.04) 48px, rgba(0, 59, 126, 0.04) 49px);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 35%;
+    background: linear-gradient(160deg, transparent 30%, #003B7E 30%);
+    clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 100%);
+    pointer-events: none;
+  }
+}
+
+.login-card {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px 48px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 32px rgba(0, 59, 126, 0.12);
+  margin: 24px;
+
+  h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1E293B;
+    margin: 24px 0 20px;
+    text-align: center;
+  }
+}
+
+.logo-area {
+  text-align: center;
+  margin-bottom: 8px;
+
+  .logo {
+    display: block;
+    width: auto;
+    height: 56px;
+    margin: 0 auto 12px;
+    object-fit: contain;
+  }
+
+  .subtitle {
+    margin: 4px 0 0;
+    font-size: 13px;
+    color: #64748B;
+  }
+}
+
+form {
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 6px;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+
+    &:focus {
+      outline: none;
+      border-color: #003B7E;
+      box-shadow: 0 0 0 3px rgba(0, 59, 126, 0.15);
+    }
+  }
+}
+
+.error {
+  color: #DC2626;
+  font-size: 13px;
+  margin: -8px 0 12px;
+}
+
+.btn-entrar {
+  width: 100%;
+  padding: 14px;
+  background: #003B7E;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover:not(:disabled) { background: #005EB8; }
+  &:disabled { opacity: 0.7; cursor: wait; }
+}
+
+.help {
+  text-align: center;
+  font-size: 12px;
+  color: #94A3B8;
+  margin-top: 20px;
+
+  strong { color: #64748B; }
+}

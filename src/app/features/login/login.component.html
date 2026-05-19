@@ -1,0 +1,44 @@
+<div class="login-page">
+  <div class="login-card">
+    <div class="logo-area">
+      <img src="/images/logo-caixa-x.png" alt="Caixa Econômica Federal" class="logo" />
+      <p class="subtitle">Portal de Sistemas</p>
+    </div>
+
+    <h2>Acesse com sua matrícula</h2>
+
+    <form (ngSubmit)="entrar()">
+      <label for="matricula">Matrícula</label>
+      <input
+        id="matricula"
+        type="text"
+        [(ngModel)]="matricula"
+        name="matricula"
+        placeholder="Digite sua matrícula"
+        autocomplete="username"
+        [disabled]="loading()"
+      />
+
+      <label for="senha">Senha</label>
+      <input
+        id="senha"
+        type="password"
+        [(ngModel)]="senha"
+        name="senha"
+        placeholder="Qualquer senha é válida para acesso"
+        autocomplete="current-password"
+        [disabled]="loading()"
+      />
+
+      @if (error()) {
+        <p class="error">{{ error() }}</p>
+      }
+
+      <button type="submit" class="btn-entrar" [disabled]="loading()">
+        {{ loading() ? 'Entrando...' : 'Entrar' }}
+      </button>
+    </form>
+
+    <p class="help">Exemplos: <strong>C000001</strong>, <strong>C000002</strong>, <strong>C000003</strong></p>
+  </div>
+</div>

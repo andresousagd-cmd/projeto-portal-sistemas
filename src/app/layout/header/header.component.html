@@ -1,0 +1,84 @@
+<header class="caixa-header">
+  <div class="header-primary">
+    <div class="header-left">
+      <img
+        src="/images/logo-caixa-x.png"
+        alt="Caixa Econômica Federal"
+        class="brand-logo"
+      />
+
+      <span class="divider" aria-hidden="true"></span>
+
+      <p class="system-name">
+        <strong>SISTEMAS</strong><span class="system-suffix">.CAIXA</span>
+      </p>
+    </div>
+
+    <div class="header-right">
+      @if (auth.usuario(); as user) {
+        <div class="greeting">
+          <p class="greeting-line">
+            Olá, <strong>{{ user.nome | uppercase }}</strong>
+          </p>
+          <p class="greeting-sub">{{ user.area }}</p>
+        </div>
+      }
+
+      <button
+        type="button"
+        class="icon-btn font-btn"
+        (click)="layout.cycleFontSize()"
+        [attr.aria-label]="'Tamanho da fonte: ' + layout.fontSizeLabel()"
+        title="Alterar tamanho da fonte"
+      >
+        <span class="font-a">A</span>
+        <sup class="font-size-num">{{ layout.fontSizeLabel() }}</sup>
+      </button>
+
+      <button
+        type="button"
+        class="icon-btn"
+        (click)="layout.toggleTheme()"
+        [attr.aria-label]="layout.theme() === 'light' ? 'Ativar tema escuro' : 'Ativar tema claro'"
+        title="Alternar tema claro/escuro"
+      >
+        @if (layout.theme() === 'light') {
+          <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M12 3a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V4a1 1 0 0 1 1-1zm0 14a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm8-5a1 1 0 0 1-1 1h-2a1 1 0 1 1 0-2h2a1 1 0 0 1 1 1zM7 12a1 1 0 0 1-1 1H4a1 1 0 1 1 0-2h2a1 1 0 0 1 1 1zm10.95 6.364a1 1 0 0 1-1.414 0l-1.414-1.414a1 1 0 1 1 1.414-1.414l1.414 1.414a1 1 0 0 1 0 1.414zM8.878 8.878a1 1 0 0 1-1.414 0L6.05 7.464a1 1 0 0 1 1.414-1.414l1.414 1.414a1 1 0 0 1 0 1.414zm8.486 0a1 1 0 0 1 0 1.414l-1.414 1.414a1 1 0 1 1-1.414-1.414l1.414-1.414a1 1 0 0 1 1.414 0zM8.878 15.122a1 1 0 0 1 0 1.414L7.464 17.95a1 1 0 1 1-1.414-1.414l1.414-1.414a1 1 0 0 1 1.414 0zM21 12a1 1 0 0 1-1 1h-2a1 1 0 1 1 0-2h2a1 1 0 0 1 1 1z"
+            />
+          </svg>
+        } @else {
+          <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M21 14.5A7.5 7.5 0 0 1 9.5 3.05 9 9 0 1 0 21 14.5z"
+            />
+          </svg>
+        }
+      </button>
+
+      <button type="button" class="btn-sair" (click)="logout()">
+        <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"
+          />
+        </svg>
+        Sair
+      </button>
+    </div>
+  </div>
+
+  <div class="header-secondary">
+    <p class="content-label">
+      <strong>Conteúdo</strong> <span>#INTERNO.CAIXA</span>
+    </p>
+    <p class="datetime">{{ now() | date: 'HH:mm - dd/MM/yy' }}</p>
+  </div>
+</header>

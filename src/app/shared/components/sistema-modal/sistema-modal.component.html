@@ -1,0 +1,51 @@
+<div class="overlay" (click)="onOverlayClick($event)">
+  <div class="modal" role="dialog" aria-modal="true">
+    <header class="modal-header">
+      <div class="icon" [style.background]="sistema().corIcone">{{ sistema().sigla.substring(0, 2) }}</div>
+      <div class="title-block">
+        <h2>{{ sistema().nome }}</h2>
+        <span class="sigla">{{ sistema().sigla }}</span>
+      </div>
+      <button type="button" class="star-btn" [class.active]="sistema().favorito" (click)="onFavorite()">★</button>
+      <button type="button" class="close-btn" (click)="onClose()" aria-label="Fechar">×</button>
+    </header>
+
+    <div class="modal-body">
+      @if (sistema().liberado) {
+        <app-badge type="liberado" label="Sistema liberado" />
+      } @else {
+        <app-badge type="restrito" label="Acesso restrito" />
+      }
+
+      <section>
+        <h3>Descrição</h3>
+        <p>{{ sistema().descricao }}. Sistema corporativo da Caixa para operações do dia a dia.</p>
+      </section>
+
+      <section class="info-grid">
+        <h3>Informações</h3>
+        <dl>
+          <dt>Categoria</dt>
+          <dd>{{ sistema().categoria }}</dd>
+          <dt>Área responsável</dt>
+          <dd>{{ sistema().areaResponsavel }}</dd>
+          <dt>URL de acesso</dt>
+          <dd class="url">{{ sistema().urlAcesso }}</dd>
+          @if (sistema().ultimoAcesso) {
+            <dt>Último acesso</dt>
+            <dd>{{ sistema().ultimoAcesso }}</dd>
+          }
+        </dl>
+      </section>
+    </div>
+
+    <footer class="modal-footer">
+      @if (!sistema().liberado || sistema().restrito) {
+        <button type="button" class="btn btn-outline" (click)="onSolicitarAcesso()">Solicitar acesso</button>
+      }
+      <button type="button" class="btn btn-primary" (click)="onAcessar()" [disabled]="!sistema().liberado">
+        Acessar sistema ↗
+      </button>
+    </footer>
+  </div>
+</div>

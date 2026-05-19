@@ -1,0 +1,114 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 30, 60, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 12px;
+  max-width: 560px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 24px 0;
+
+  .icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .title-block {
+    flex: 1;
+    h2 { margin: 0; font-size: 20px; color: #003B7E; }
+    .sigla { font-size: 13px; color: #64748B; }
+  }
+
+  .star-btn, .close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #94A3B8;
+    padding: 4px 8px;
+  }
+  .star-btn.active { color: #FFB81C; }
+  .close-btn { font-size: 28px; }
+}
+
+.modal-body {
+  padding: 20px 24px;
+
+  section {
+    margin-top: 20px;
+    h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #003B7E;
+      margin: 0 0 8px;
+    }
+    p { margin: 0; font-size: 14px; color: #475569; line-height: 1.6; }
+  }
+}
+
+.info-grid dl {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 8px 16px;
+  margin: 0;
+  font-size: 14px;
+
+  dt { color: #64748B; font-weight: 500; }
+  dd { margin: 0; color: #1E293B; }
+  .url { color: #005EB8; word-break: break-all; }
+}
+
+.modal-footer {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  padding: 16px 24px 24px;
+  border-top: 1px solid #E2E8F0;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+
+  &.btn-primary {
+    background: #003B7E;
+    color: #fff;
+    &:hover:not(:disabled) { background: #005EB8; }
+    &:disabled { opacity: 0.5; cursor: not-allowed; }
+  }
+  &.btn-outline {
+    background: #fff;
+    color: #003B7E;
+    border: 2px solid #003B7E;
+    &:hover { background: #E6F0FA; }
+  }
+}

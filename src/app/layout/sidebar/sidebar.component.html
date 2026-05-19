@@ -1,0 +1,30 @@
+<aside class="sidebar">
+  <div class="brand">
+    <img src="/images/logo-caixa.png" alt="Caixa Econômica Federal" class="logo" />
+    <span class="brand-text">Portal<br /><small>de Sistemas</small></span>
+  </div>
+
+  <nav class="nav">
+    @for (item of navItems; track item.label) {
+      <a
+        [routerLink]="item.path"
+        [fragment]="item.fragment"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: item.path === '/home' && !item.fragment }"
+        class="nav-item"
+      >
+        <span class="icon">{{ item.icon }}</span>
+        {{ item.label }}
+      </a>
+    }
+  </nav>
+
+  <div class="sidebar-footer">
+    <a routerLink="/home" class="nav-item">
+      <span class="icon">⚙</span> Configurações
+    </a>
+    <button type="button" class="nav-item logout" (click)="logout()">
+      <span class="icon">⎋</span> Sair
+    </button>
+  </div>
+</aside>

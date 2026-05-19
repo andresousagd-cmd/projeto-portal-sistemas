@@ -1,0 +1,115 @@
+<div class="home-page">
+  <section class="search-hero">
+    <form class="search-form" (ngSubmit)="onSearch()">
+      <input
+        type="search"
+        [(ngModel)]="searchQuery"
+        name="q"
+        placeholder="Pesquisar sistemas por nome, sigla ou descrição..."
+      />
+      <span class="search-icon" aria-hidden="true">🔍</span>
+    </form>
+    <div class="hero-banner">
+      <p>Acesso rápido e inteligente aos sistemas da Caixa.</p>
+    </div>
+  </section>
+
+  @if (loading()) {
+    <p class="loading">Carregando...</p>
+  } @else {
+    @if (homeData(); as data) {
+      <div class="sections-grid">
+        <section id="favoritos" class="section-panel">
+          <div class="panel-header">
+            <h2><span class="panel-icon">★</span> Favoritos</h2>
+            <a routerLink="/home" fragment="favoritos" class="ver-todos">Ver todos</a>
+          </div>
+          @if (data.favoritos.length) {
+            <div class="card-grid">
+              @for (s of data.favoritos; track s.id) {
+                <app-sistema-card
+                  [sistema]="s"
+                  (cardClick)="openSistema($event)"
+                  (favoriteClick)="toggleFavorite($event)"
+                />
+              }
+            </div>
+          } @else {
+            <p class="panel-empty">Nenhum sistema favorito.</p>
+          }
+        </section>
+
+        <section id="lancamentos" class="section-panel">
+          <div class="panel-header">
+            <h2><span class="panel-icon">🚀</span> Lançamentos</h2>
+            <a routerLink="/home" fragment="lancamentos" class="ver-todos">Ver todos</a>
+          </div>
+          @if (data.lancamentos.length) {
+            <div class="card-grid">
+              @for (s of data.lancamentos; track s.id) {
+                <app-sistema-card
+                  [sistema]="s"
+                  (cardClick)="openSistema($event)"
+                  (favoriteClick)="toggleFavorite($event)"
+                />
+              }
+            </div>
+          } @else {
+            <p class="panel-empty">Nenhum lançamento no momento.</p>
+          }
+        </section>
+
+        <section id="recentes" class="section-panel">
+          <div class="panel-header">
+            <h2><span class="panel-icon">🕐</span> Últimos acessados</h2>
+            <a routerLink="/home" fragment="recentes" class="ver-todos">Ver todos</a>
+          </div>
+          @if (data.ultimosAcessados.length) {
+            <div class="card-grid compact-grid">
+              @for (s of data.ultimosAcessados; track s.id) {
+                <app-sistema-card
+                  [sistema]="s"
+                  [compact]="true"
+                  (cardClick)="openSistema($event)"
+                  (favoriteClick)="toggleFavorite($event)"
+                />
+              }
+            </div>
+          } @else {
+            <p class="panel-empty">Nenhum acesso recente.</p>
+          }
+        </section>
+
+        <section class="section-panel">
+          <div class="panel-header">
+            <h2><span class="panel-icon">📊</span> Mais acessados</h2>
+            <a routerLink="/search" class="ver-todos">Ver todos</a>
+          </div>
+          @if (data.maisAcessados.length) {
+            <div class="ranked-list">
+              @for (s of data.maisAcessados; track s.id; let i = $index) {
+                <app-sistema-card
+                  [sistema]="s"
+                  [compact]="true"
+                  [rank]="i + 1"
+                  (cardClick)="openSistema($event)"
+                  (favoriteClick)="toggleFavorite($event)"
+                />
+              }
+            </div>
+          } @else {
+            <p class="panel-empty">Sem dados de acesso.</p>
+          }
+        </section>
+      </div>
+    }
+  }
+
+  @if (selectedSistema(); as sistema) {
+    <app-sistema-modal
+      [sistema]="sistema"
+      (close)="closeModal()"
+      (favoriteToggle)="toggleFavorite($event)"
+    />
+  }
+</div>

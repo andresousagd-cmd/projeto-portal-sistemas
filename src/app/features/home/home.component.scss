@@ -1,0 +1,172 @@
+.home-page {
+  padding: 24px 28px 40px;
+}
+
+.search-hero {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 8px;
+  padding: 0 14px;
+  box-shadow: 0 2px 8px rgba(0, 59, 126, 0.08);
+  max-width: 480px;
+  width: 100%;
+  flex-shrink: 0;
+  border: 1px solid #e2e8f0;
+
+  input {
+    flex: 1;
+    border: none;
+    padding: 10px 0;
+    font-size: 14px;
+    outline: none;
+    background: transparent;
+    min-width: 0;
+  }
+
+  .search-icon {
+    font-size: 16px;
+    margin-left: 8px;
+    opacity: 0.45;
+    flex-shrink: 0;
+  }
+}
+
+.hero-banner {
+  background: linear-gradient(135deg, #003b7e, #005eb8);
+  border-radius: 8px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  flex: 1;
+  min-width: 0;
+  max-width: 340px;
+
+  p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+}
+
+.sections-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  @media (max-width: 960px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.section-panel {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 59, 126, 0.08);
+  border: 1px solid #e8eef4;
+  min-height: 180px;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  gap: 12px;
+
+  h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #003b7e;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .panel-icon {
+    font-size: 15px;
+  }
+}
+
+.ver-todos {
+  font-size: 13px;
+  font-weight: 500;
+  color: #005eb8;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.panel-empty {
+  margin: 0;
+  font-size: 13px;
+  color: #94a3b8;
+  padding: 8px 0;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+
+  &.compact-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+.section-panel {
+  ::ng-deep app-sistema-card .card {
+    box-shadow: none;
+    border: 1px solid #e2e8f0;
+
+    &:hover {
+      box-shadow: 0 2px 8px rgba(0, 59, 126, 0.1);
+      transform: none;
+    }
+  }
+}
+
+.ranked-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  ::ng-deep app-sistema-card .card {
+    padding-left: 48px;
+  }
+}
+
+.loading {
+  text-align: center;
+  color: #64748b;
+  padding: 48px;
+}
+
+@media (max-width: 768px) {
+  .search-hero {
+    flex-direction: column;
+  }
+
+  .search-form {
+    max-width: none;
+  }
+
+  .hero-banner {
+    max-width: none;
+  }
+}

@@ -1,0 +1,65 @@
+<div class="solicitar-page">
+  <a routerLink="/home" class="back-link">← Voltar</a>
+  <h1>Solicitar acesso ao sistema</h1>
+
+  @if (success()) {
+    <div class="success-box">
+      <h2>Solicitação enviada!</h2>
+      <p>Sua solicitação foi registrada e será analisada pelo gestor responsável.</p>
+      <a routerLink="/home" class="btn btn-primary">Voltar ao início</a>
+    </div>
+  } @else {
+    @if (sistema(); as s) {
+    <div class="layout-grid">
+      <div class="form-area">
+        <div class="sistema-summary">
+          <div class="icon" [style.background]="s.corIcone">{{ s.sigla.substring(0, 2) }}</div>
+          <div>
+            <h2>{{ s.nome }}</h2>
+            <p>{{ s.descricao }}</p>
+          </div>
+          <app-badge type="restrito" label="Acesso restrito" />
+        </div>
+
+        <form (ngSubmit)="enviar()">
+          <label for="justificativa">Justificativa *</label>
+          <textarea
+            id="justificativa"
+            [(ngModel)]="justificativa"
+            name="justificativa"
+            rows="4"
+            placeholder="Descreva o motivo da solicitação de acesso..."
+            required
+          ></textarea>
+
+          <label for="observacoes">Observações (opcional)</label>
+          <textarea
+            id="observacoes"
+            [(ngModel)]="observacoes"
+            name="observacoes"
+            rows="3"
+            placeholder="Informações adicionais..."
+          ></textarea>
+
+          @if (error()) {
+            <p class="error">{{ error() }}</p>
+          }
+
+          <button type="submit" class="btn btn-primary" [disabled]="loading()">
+            {{ loading() ? 'Enviando...' : 'Enviar solicitação' }}
+          </button>
+        </form>
+      </div>
+
+      <aside class="guide">
+        <h3>Como funciona?</h3>
+        <ol>
+          <li><strong>Envie a solicitação</strong> com a justificativa do acesso necessário.</li>
+          <li><strong>Análise do gestor</strong> — o responsável pela área avalia o pedido.</li>
+          <li><strong>Liberação</strong> — após aprovação, o acesso é liberado automaticamente.</li>
+        </ol>
+      </aside>
+    </div>
+    }
+  }
+</div>

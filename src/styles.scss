@@ -9,6 +9,8 @@
   --text: #1e293b;
   --text-muted: #64748b;
   --border: #e2e8f0;
+  /* Manual de Identidade Visual CAIXA: família Futura; Jost como equivalente web */
+  --font-caixa: 'Futura', 'Futura PT', 'Century Gothic', 'Jost', sans-serif;
 }
 
 [data-theme='dark'] {
@@ -47,7 +49,7 @@ body {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-caixa);
   font-size: 1rem;
   color: var(--text);
   background: var(--bg);

@@ -1,0 +1,93 @@
+<div class="portais-page">
+  <header class="page-header">
+    <h1>Meus portais externos</h1>
+    <p>Cadastre os portais que você mais utiliza no dia a dia para acesso rápido.</p>
+  </header>
+
+  <section class="panel form-panel">
+    <h2>Adicionar portal</h2>
+    <form (ngSubmit)="adicionar()">
+      <div class="form-row">
+        <div class="field">
+          <label for="nome">Nome do portal *</label>
+          <input
+            id="nome"
+            type="text"
+            [(ngModel)]="nome"
+            name="nome"
+            placeholder="Ex.: SIPNC, SEI, E-mail corporativo"
+            maxlength="80"
+          />
+        </div>
+        <div class="field field-url">
+          <label for="url">URL *</label>
+          <input
+            id="url"
+            type="url"
+            [(ngModel)]="url"
+            name="url"
+            placeholder="https://portal.exemplo.gov.br"
+          />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="descricao">Descrição (opcional)</label>
+        <input
+          id="descricao"
+          type="text"
+          [(ngModel)]="descricao"
+          name="descricao"
+          placeholder="Breve descrição para identificar o portal"
+          maxlength="120"
+        />
+      </div>
+
+      @if (error()) {
+        <p class="msg error">{{ error() }}</p>
+      }
+      @if (success()) {
+        <p class="msg success">{{ success() }}</p>
+      }
+
+      <button type="submit" class="btn-primary">Incluir portal</button>
+    </form>
+  </section>
+
+  <section class="panel list-panel">
+    <div class="list-header">
+      <h2>Seus portais ({{ portais().length }})</h2>
+    </div>
+
+    @if (portais().length === 0) {
+      <p class="empty">
+        Nenhum portal cadastrado. Use o formulário acima para incluir os links que você mais acessa.
+      </p>
+    } @else {
+      <ul class="portal-list">
+        @for (portal of portais(); track portal.id) {
+          <li class="portal-item">
+            <button type="button" class="portal-main" (click)="abrir(portal.url)">
+              <span class="portal-icon" aria-hidden="true">↗</span>
+              <span class="portal-info">
+                <strong>{{ portal.nome }}</strong>
+                @if (portal.descricao) {
+                  <span class="portal-desc">{{ portal.descricao }}</span>
+                }
+                <span class="portal-url">{{ portal.url }}</span>
+              </span>
+            </button>
+            <button
+              type="button"
+              class="btn-remove"
+              (click)="remover(portal.id, portal.nome)"
+              [attr.aria-label]="'Remover ' + portal.nome"
+            >
+              Remover
+            </button>
+          </li>
+        }
+      </ul>
+    }
+  </section>
+</div>

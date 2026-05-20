@@ -22,6 +22,11 @@ export const routes: Routes = [
         loadComponent: () => import('./features/search/search.component').then(m => m.SearchComponent),
       },
       {
+        path: 'portais-externos',
+        loadComponent: () =>
+          import('./features/portais-externos/portais-externos.component').then(m => m.PortaisExternosComponent),
+      },
+      {
         path: 'solicitar-acesso',
         loadComponent: () =>
           import('./features/solicitar-acesso/solicitar-acesso.component').then(m => m.SolicitarAcessoComponent),

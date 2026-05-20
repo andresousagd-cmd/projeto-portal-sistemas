@@ -52,3 +52,17 @@ export interface SearchResult {
   page: number;
   pageSize: number;
 }
+
+export interface PortalExterno {
+  id: string;
+  nome: string;
+  url: string;
+  descricao?: string;
+  criadoEm: string;
+}
+
+export interface PortalExternoInput {
+  nome: string;
+  url: string;
+  descricao?: string;
+}

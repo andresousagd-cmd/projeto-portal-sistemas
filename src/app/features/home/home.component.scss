@@ -5,6 +5,7 @@
 .search-hero {
   display: flex;
   align-items: stretch;
+  justify-content: space-between;
   gap: 16px;
   margin-bottom: 24px;
 }
@@ -46,9 +47,10 @@
   display: flex;
   align-items: center;
   color: #fff;
-  flex: 1;
-  min-width: 0;
+  flex: 0 0 auto;
+  width: 340px;
   max-width: 340px;
+  margin-left: auto;
 
   p {
     margin: 0;
@@ -167,6 +169,8 @@
   }
 
   .hero-banner {
+    width: 100%;
     max-width: none;
+    margin-left: 0;
   }
 }

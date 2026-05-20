@@ -16,6 +16,7 @@ export class SidebarComponent {
   navItems = [
     { path: '/home', label: 'Home', icon: '⌂' },
     { path: '/search', label: 'Buscar', icon: '🔍' },
+    { path: '/portais-externos', label: 'Meus portais', icon: '🔗' },
     { path: '/home', label: 'Favoritos', icon: '★', fragment: 'favoritos' },
     { path: '/home', label: 'Lançamentos', icon: '🚀', fragment: 'lancamentos' },
   ];

@@ -37,13 +37,15 @@
     </a>
 
     <a
-      routerLink="/agente-ia"
-      routerLinkActive="active"
-      class="nav-item"
-      title="Assistente inteligente do portal"
+      [href]="agenteIaTeamsUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="nav-item nav-external"
+      title="Abrir Agente IA no Microsoft Teams"
     >
       <span class="icon">🤖</span>
       Agente IA
+      <span class="external-hint" aria-hidden="true">↗</span>
     </a>
 
     <div class="nav-group">

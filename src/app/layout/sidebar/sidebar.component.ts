@@ -26,11 +26,13 @@ export class SidebarComponent {
     { path: '/search', label: 'Buscar', icon: '🔍' },
     { path: '/portais-externos', label: 'Meus portais', icon: '🔗' },
     { path: '/meu-dia', label: 'Meu dia', icon: '☀' },
+    { path: '/status-sistemas', label: 'Status', icon: '🚦' },
     { path: '/home', label: 'Favoritos', icon: '★', fragment: 'favoritos' },
     { path: '/home', label: 'Lançamentos', icon: '🚀', fragment: 'lancamentos' },
   ];
 
   readonly chatCaixaTeamsUrl = environment.chatCaixaTeamsUrl;
+  readonly agenteIaTeamsUrl = environment.agenteIaTeamsUrl;
 
   toggleCategorias(): void {
     this.categoriasAbertas.update(v => !v);

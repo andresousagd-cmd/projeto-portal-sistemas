@@ -1,4 +1,19 @@
-import { HomeData, Sistema, Usuario } from '../models';
+import { HomeData, Sistema, SistemaStatusConsulta, StatusOperacionalSistema, Usuario } from '../models';
+
+export const MOCK_STATUS_SISTEMAS: Record<
+  number,
+  { status: StatusOperacionalSistema; mensagem: string; atualizadoEm: string }
+> = {
+  1: { status: 'disponivel', mensagem: 'Operação normal', atualizadoEm: '2026-05-19T14:30:00' },
+  2: { status: 'disponivel', mensagem: 'Operação normal', atualizadoEm: '2026-05-19T14:28:00' },
+  3: { status: 'lentidao', mensagem: 'Resposta acima do tempo esperado', atualizadoEm: '2026-05-19T14:25:00' },
+  4: { status: 'lentidao', mensagem: 'Alta demanda no atendimento', atualizadoEm: '2026-05-19T14:22:00' },
+  5: { status: 'disponivel', mensagem: 'Operação normal', atualizadoEm: '2026-05-19T14:31:00' },
+  6: { status: 'indisponivel', mensagem: 'Manutenção programada', atualizadoEm: '2026-05-19T13:00:00' },
+  7: { status: 'indisponivel', mensagem: 'Falha na autenticação corporativa', atualizadoEm: '2026-05-19T12:45:00' },
+  8: { status: 'disponivel', mensagem: 'Operação normal', atualizadoEm: '2026-05-19T14:29:00' },
+  9: { status: 'lentidao', mensagem: 'Processamento de filas elevado', atualizadoEm: '2026-05-19T14:18:00' },
+};
 
 export const MOCK_USUARIOS: Record<string, Usuario> = {
   C000001: { id: 1, matricula: 'C000001', nome: 'Maria Silva', area: 'Atendimento - Agência Centro' },
@@ -90,4 +105,24 @@ export function searchMockSistemas(
   }
   const start = (page - 1) * pageSize;
   return { items: filtered.slice(start, start + pageSize), total: filtered.length };
+}
+
+export function buscarStatusSistemas(query: string): SistemaStatusConsulta[] {
+  const q = query.toLowerCase().trim();
+  if (!q) return [];
+
+  return MOCK_SISTEMAS.filter(
+    s =>
+      s.nome.toLowerCase().includes(q) ||
+      s.sigla.toLowerCase().includes(q) ||
+      s.descricao.toLowerCase().includes(q) ||
+      s.categoria.toLowerCase().includes(q)
+  ).map(sistema => {
+    const info = MOCK_STATUS_SISTEMAS[sistema.id] ?? {
+      status: 'disponivel' as StatusOperacionalSistema,
+      mensagem: 'Sem informação de monitoramento',
+      atualizadoEm: new Date().toISOString(),
+    };
+    return { sistema, ...info };
+  });
 }

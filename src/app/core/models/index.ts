@@ -66,3 +66,12 @@ export interface PortalExternoInput {
   url: string;
   descricao?: string;
 }
+
+export type StatusOperacionalSistema = 'disponivel' | 'lentidao' | 'indisponivel';
+
+export interface SistemaStatusConsulta {
+  sistema: Sistema;
+  status: StatusOperacionalSistema;
+  mensagem: string;
+  atualizadoEm: string;
+}

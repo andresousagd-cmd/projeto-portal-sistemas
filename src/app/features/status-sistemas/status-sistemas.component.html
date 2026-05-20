@@ -1,0 +1,70 @@
+<div class="status-page">
+  <header class="page-header">
+    <h1>Status dos sistemas</h1>
+    <p>Consulte a disponibilidade operacional dos sistemas do portal.</p>
+  </header>
+
+  <section class="legenda panel">
+    <h2>Legenda</h2>
+    <ul class="legenda-list">
+      @for (item of legenda; track item.status) {
+        <li>
+          <span class="status-dot" [style.background]="item.cor" aria-hidden="true"></span>
+          {{ item.label }}
+        </li>
+      }
+    </ul>
+  </section>
+
+  <section class="panel busca-panel">
+    <h2>Buscar sistema</h2>
+    <form class="busca-form" (ngSubmit)="buscar()">
+      <input
+        type="search"
+        [(ngModel)]="termoBusca"
+        name="termo"
+        placeholder="Digite nome, sigla ou descrição do sistema..."
+        autocomplete="off"
+      />
+      <button type="submit" class="btn-buscar" [disabled]="buscando() || !termoBusca.trim()">
+        {{ buscando() ? 'Consultando...' : 'Verificar status' }}
+      </button>
+    </form>
+  </section>
+
+  @if (buscou()) {
+    <section class="panel resultados-panel">
+      @if (buscando()) {
+        <p class="info">Consultando status...</p>
+      } @else if (resultados().length === 0) {
+        <p class="info">Nenhum sistema encontrado para &ldquo;{{ termoBusca }}&rdquo;.</p>
+      } @else {
+        <h2>Resultados ({{ resultados().length }})</h2>
+        <ul class="resultados-list">
+          @for (item of resultados(); track item.sistema.id) {
+            <li class="resultado-item">
+              <div class="sistema-info">
+                <div class="icon" [style.background]="item.sistema.corIcone">
+                  {{ item.sistema.sigla.substring(0, 2) }}
+                </div>
+                <div>
+                  <strong>{{ item.sistema.nome }}</strong>
+                  <span class="sigla">({{ item.sistema.sigla }})</span>
+                  <span class="categoria">{{ item.sistema.categoria }}</span>
+                </div>
+              </div>
+              <div class="status-info" [class]="item.status">
+                <span class="status-dot" aria-hidden="true"></span>
+                <div>
+                  <strong>{{ labelStatus(item.status) }}</strong>
+                  <p>{{ item.mensagem }}</p>
+                  <time>Atualizado: {{ item.atualizadoEm | date: 'dd/MM/yyyy HH:mm' }}</time>
+                </div>
+              </div>
+            </li>
+          }
+        </ul>
+      }
+    </section>
+  }
+</div>

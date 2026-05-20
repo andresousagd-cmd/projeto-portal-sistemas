@@ -3,6 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HomeData, Sistema } from '../../core/models';
 import { SistemasService } from '../../core/services/sistemas.service';
+import { MeuDiaService } from '../../core/services/meu-dia.service';
 import { SistemaCardComponent } from '../../shared/components/sistema-card/sistema-card.component';
 import { SistemaModalComponent } from '../../shared/components/sistema-modal/sistema-modal.component';
 
@@ -19,8 +20,11 @@ export class HomeComponent implements OnInit {
   homeData = signal<HomeData | null>(null);
   selectedSistema = signal<Sistema | null>(null);
 
+  meuDia = inject(MeuDiaService);
   private sistemasService = inject(SistemasService);
   private router = inject(Router);
+
+  meuDiaAviso = signal<string | null>(null);
 
   ngOnInit(): void {
     this.sistemasService.getHome().subscribe({
@@ -36,6 +40,15 @@ export class HomeComponent implements OnInit {
     const q = this.searchQuery.trim();
     if (q) {
       this.router.navigate(['/search'], { queryParams: { q } });
+    }
+  }
+
+  iniciarMeuDia(): void {
+    this.meuDiaAviso.set(null);
+    const abertos = this.meuDia.iniciarDia();
+    if (abertos === 0) {
+      this.meuDiaAviso.set('Configure até 5 sistemas em "Meu dia" no menu lateral.');
+      this.router.navigate(['/meu-dia']);
     }
   }
 

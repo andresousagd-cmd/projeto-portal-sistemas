@@ -27,6 +27,11 @@ export const routes: Routes = [
           import('./features/portais-externos/portais-externos.component').then(m => m.PortaisExternosComponent),
       },
       {
+        path: 'meu-dia',
+        loadComponent: () =>
+          import('./features/meu-dia/meu-dia.component').then(m => m.MeuDiaComponent),
+      },
+      {
         path: 'solicitar-acesso',
         loadComponent: () =>
           import('./features/solicitar-acesso/solicitar-acesso.component').then(m => m.SolicitarAcessoComponent),

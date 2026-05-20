@@ -1,7 +1,13 @@
 <div class="search-page">
   <a routerLink="/home" class="back-link">← Voltar ao início</a>
 
-  <h1>Resultados para &ldquo;{{ query() }}&rdquo;</h1>
+  <h1>
+    @if (categoria() && !query()) {
+      Categoria: {{ titulo() }}
+    } @else {
+      Resultados para {{ titulo() }}
+    }
+  </h1>
   <p class="result-count">{{ total() }} sistema(s) encontrado(s)</p>
 
   @if (loading()) {

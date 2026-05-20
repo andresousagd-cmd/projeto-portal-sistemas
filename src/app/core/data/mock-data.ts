@@ -8,51 +8,56 @@ export const MOCK_USUARIOS: Record<string, Usuario> = {
 
 export const MOCK_SISTEMAS: Sistema[] = [
   {
-    id: 1, nome: 'SIOP', sigla: 'SIOP', descricao: 'Sistema Integrado de Operações',
-    categoria: 'Operações', areaResponsavel: 'TI Corporativa', urlAcesso: 'https://siop.caixa.gov.br',
-    corIcone: '#003B7E', lancamento: false, restrito: false, liberado: true, totalAcessos: 1250,
+    id: 1, nome: 'SISAG', sigla: 'SISAG', descricao: 'Sistema de Automação de Agências',
+    categoria: 'Atendimento', areaResponsavel: 'Rede de Agências', urlAcesso: 'https://sisag.caixa.gov.br',
+    corIcone: '#003B7E', lancamento: false, restrito: false, liberado: true, totalAcessos: 2180,
   },
   {
-    id: 2, nome: 'FGTS Operacional', sigla: 'FGTS', descricao: 'Gestão operacional do FGTS para atendimento',
-    categoria: 'Habitação', areaResponsavel: 'Diretoria Habitação', urlAcesso: 'https://fgts.caixa.gov.br',
-    corIcone: '#22C55E', lancamento: true, restrito: false, liberado: true, totalAcessos: 980,
+    id: 2, nome: 'SIATR', sigla: 'SIATR', descricao: 'Sistema de Atendimento de Transações e Registros',
+    categoria: 'Atendimento', areaResponsavel: 'Diretoria de Negócios', urlAcesso: 'https://siatr.caixa.gov.br',
+    corIcone: '#005EB8', lancamento: false, restrito: false, liberado: true, totalAcessos: 1950,
   },
   {
-    id: 3, nome: 'SIPAC', sigla: 'SIPAC', descricao: 'Sistema de Patrimônio e Almoxarifado Corporativo',
-    categoria: 'Administrativo', areaResponsavel: 'Suprimentos', urlAcesso: 'https://sipac.caixa.gov.br',
-    corIcone: '#FFB81C', lancamento: false, restrito: true, liberado: false, totalAcessos: 420,
+    id: 3, nome: 'SIPNL', sigla: 'SIPNL', descricao: 'Sistema de configuração dos ambientes de atendimento',
+    categoria: 'Atendimento', areaResponsavel: 'TI Corporativa', urlAcesso: 'https://sipnl.caixa.gov.br',
+    corIcone: '#64748B', lancamento: false, restrito: false, liberado: true, totalAcessos: 1420,
   },
   {
-    id: 4, nome: 'SICOV', sigla: 'SICOV', descricao: 'Sistema de Convênios e Parcerias',
-    categoria: 'Convênios', areaResponsavel: 'Relações Institucionais', urlAcesso: 'https://sicov.caixa.gov.br',
-    corIcone: '#005EB8', lancamento: true, restrito: false, liberado: true, totalAcessos: 760,
+    id: 4, nome: 'Plataforma CAIXA', sigla: 'PLTC', descricao: 'Gerenciamento do atendimento e emissão de senhas',
+    categoria: 'Atendimento', areaResponsavel: 'Rede de Agências', urlAcesso: 'https://plataforma.caixa.gov.br',
+    corIcone: '#FFB81C', lancamento: true, restrito: false, liberado: true, totalAcessos: 2340,
   },
   {
-    id: 5, nome: 'SINAT', sigla: 'SINAT', descricao: 'Sistema Nacional de Atendimento',
-    categoria: 'Atendimento', areaResponsavel: 'Rede de Agências', urlAcesso: 'https://sinat.caixa.gov.br',
-    corIcone: '#003B7E', lancamento: false, restrito: false, liberado: true, totalAcessos: 2100,
+    id: 5, nome: 'SIAVL', sigla: 'SIAVL', descricao: 'Atendimento Virtual',
+    categoria: 'Atendimento', areaResponsavel: 'Canais Digitais', urlAcesso: 'https://siavl.caixa.gov.br',
+    corIcone: '#22C55E', lancamento: true, restrito: false, liberado: true, totalAcessos: 1680,
   },
   {
-    id: 6, nome: 'SICAC', sigla: 'SICAC', descricao: 'Sistema de Cadastro de Clientes',
-    categoria: 'Cadastro', areaResponsavel: 'Diretoria de Negócios', urlAcesso: 'https://sicac.caixa.gov.br',
-    corIcone: '#64748B', lancamento: false, restrito: false, liberado: true, totalAcessos: 1890,
+    id: 6, nome: 'SIPLD', sigla: 'SIPLD', descricao: 'Prevenção à lavagem de dinheiro e gestão de riscos',
+    categoria: 'Crédito', areaResponsavel: 'Compliance e Riscos', urlAcesso: 'https://sipld.caixa.gov.br',
+    corIcone: '#003B7E', lancamento: false, restrito: true, liberado: false, totalAcessos: 890,
   },
   {
-    id: 7, nome: 'SIPES', sigla: 'SIPES', descricao: 'Sistema de Pessoal e Folha de Pagamento',
-    categoria: 'RH', areaResponsavel: 'Recursos Humanos', urlAcesso: 'https://sipes.caixa.gov.br',
-    corIcone: '#005EB8', lancamento: false, restrito: true, liberado: false, totalAcessos: 310,
+    id: 7, nome: 'SISGR', sigla: 'SISGR', descricao: 'Sistema integrado de segurança',
+    categoria: 'Atendimento', areaResponsavel: 'Segurança Corporativa', urlAcesso: 'https://sisgr.caixa.gov.br',
+    corIcone: '#005EB8', lancamento: false, restrito: true, liberado: false, totalAcessos: 720,
   },
   {
-    id: 8, nome: 'SICONV', sigla: 'SICONV', descricao: 'Portal de Convênios Federais',
-    categoria: 'Convênios', areaResponsavel: 'Governo', urlAcesso: 'https://siconv.caixa.gov.br',
-    corIcone: '#22C55E', lancamento: true, restrito: false, liberado: true, totalAcessos: 540,
+    id: 8, nome: 'SICOD', sigla: 'SICOD', descricao: 'Controle e gestão documental e de processos',
+    categoria: 'RH', areaResponsavel: 'Gestão Documental', urlAcesso: 'https://sicod.caixa.gov.br',
+    corIcone: '#FFB81C', lancamento: false, restrito: false, liberado: true, totalAcessos: 1150,
+  },
+  {
+    id: 9, nome: 'GEDAM', sigla: 'GEDAM', descricao: 'Demandas FGTS',
+    categoria: 'Habitação', areaResponsavel: 'Diretoria Habitação', urlAcesso: 'https://gedam.caixa.gov.br',
+    corIcone: '#22C55E', lancamento: false, restrito: false, liberado: true, totalAcessos: 1320,
   },
 ];
 
 export function getMockHomeData(favoritosIds: number[], recentIds: number[]): HomeData {
   const byId = (ids: number[]) => ids.map(id => MOCK_SISTEMAS.find(s => s.id === id)).filter(Boolean) as Sistema[];
   const favoritos = byId(favoritosIds).map(s => ({ ...s, favorito: true }));
-  const ultimosAcessados = byId(recentIds.length ? recentIds : [2, 1, 5]);
+  const ultimosAcessados = byId(recentIds.length ? recentIds : [4, 1, 2]);
   const maisAcessados = [...MOCK_SISTEMAS]
     .sort((a, b) => (b.totalAcessos ?? 0) - (a.totalAcessos ?? 0))
     .slice(0, 5);
@@ -61,17 +66,28 @@ export function getMockHomeData(favoritosIds: number[], recentIds: number[]): Ho
   return { favoritos, lancamentos, ultimosAcessados, maisAcessados };
 }
 
-export function searchMockSistemas(query: string, page = 1, pageSize = 10): { items: Sistema[]; total: number } {
+export function searchMockSistemas(
+  query: string,
+  page = 1,
+  pageSize = 10,
+  categoria?: string
+): { items: Sistema[]; total: number } {
   const q = query.toLowerCase().trim();
-  const filtered = q
-    ? MOCK_SISTEMAS.filter(
-        s =>
-          s.nome.toLowerCase().includes(q) ||
-          s.sigla.toLowerCase().includes(q) ||
-          s.descricao.toLowerCase().includes(q) ||
-          s.categoria.toLowerCase().includes(q)
-      )
-    : MOCK_SISTEMAS;
+  let filtered = MOCK_SISTEMAS;
+
+  if (categoria) {
+    filtered = filtered.filter(s => s.categoria === categoria);
+  }
+
+  if (q) {
+    filtered = filtered.filter(
+      s =>
+        s.nome.toLowerCase().includes(q) ||
+        s.sigla.toLowerCase().includes(q) ||
+        s.descricao.toLowerCase().includes(q) ||
+        s.categoria.toLowerCase().includes(q)
+    );
+  }
   const start = (page - 1) * pageSize;
   return { items: filtered.slice(start, start + pageSize), total: filtered.length };
 }

@@ -24,9 +24,13 @@ export class SistemasService {
     );
   }
 
-  search(query: string, page = 1, pageSize = 10): Observable<SearchResult> {
+  listarTodos(): Sistema[] {
+    return this.enrichSistemas([...MOCK_SISTEMAS]);
+  }
+
+  search(query: string, page = 1, pageSize = 10, categoria?: string): Observable<SearchResult> {
     if (environment.useMock) {
-      const { items, total } = searchMockSistemas(query, page, pageSize);
+      const { items, total } = searchMockSistemas(query, page, pageSize, categoria);
       return of({
         items: this.enrichSistemas(items),
         total,
@@ -34,14 +38,17 @@ export class SistemasService {
         pageSize,
       });
     }
-    const params = new HttpParams()
+    let params = new HttpParams()
       .set('q', query)
       .set('page', page)
       .set('pageSize', pageSize);
+    if (categoria) {
+      params = params.set('categoria', categoria);
+    }
     return this.http.get<SearchResult>(`${environment.apiUrl}/sistemas/search`, { params }).pipe(
       map(r => ({ ...r, items: this.enrichSistemas(r.items) })),
       catchError(() => {
-        const { items, total } = searchMockSistemas(query, page, pageSize);
+        const { items, total } = searchMockSistemas(query, page, pageSize, categoria);
         return of({ items: this.enrichSistemas(items), total, page, pageSize });
       })
     );

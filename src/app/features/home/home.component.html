@@ -1,5 +1,6 @@
 <div class="home-page">
   <section class="search-hero">
+    <div class="search-hero-left">
     <form class="search-form" (ngSubmit)="onSearch()">
       <input
         type="search"
@@ -9,6 +10,17 @@
       />
       <span class="search-icon" aria-hidden="true">🔍</span>
     </form>
+    <button type="button" class="btn-iniciar-dia" (click)="iniciarMeuDia()">
+      <span class="btn-icon" aria-hidden="true">☀</span>
+      Iniciar meu dia
+      @if (meuDia.quantidade() > 0) {
+        <span class="btn-count">{{ meuDia.quantidade() }}</span>
+      }
+    </button>
+    @if (meuDiaAviso()) {
+      <p class="meu-dia-aviso">{{ meuDiaAviso() }}</p>
+    }
+    </div>
     <div class="hero-banner">
       <p>Acesso rápido e inteligente aos sistemas da Caixa.</p>
     </div>

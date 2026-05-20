@@ -15,8 +15,33 @@
       >
         <span class="icon">{{ item.icon }}</span>
         {{ item.label }}
+        @if (item.path === '/meu-dia' && meuDia.quantidade() > 0) {
+          <span class="badge">{{ meuDia.quantidade() }}</span>
+        }
       </a>
     }
+
+    <div class="nav-group">
+      <button type="button" class="nav-item nav-toggle" (click)="toggleCategorias()">
+        <span class="icon">▦</span>
+        Categorias
+        <span class="chevron" [class.open]="categoriasAbertas()">›</span>
+      </button>
+      @if (categoriasAbertas()) {
+        <div class="nav-sub">
+          @for (cat of categorias; track cat) {
+            <a
+              [routerLink]="['/search']"
+              [queryParams]="{ categoria: cat }"
+              routerLinkActive="active"
+              class="nav-item nav-sub-item"
+            >
+              {{ cat }}
+            </a>
+          }
+        </div>
+      }
+    </div>
   </nav>
 
   <div class="sidebar-footer">

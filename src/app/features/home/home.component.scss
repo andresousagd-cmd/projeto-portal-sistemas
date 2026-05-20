@@ -4,10 +4,17 @@
 
 .search-hero {
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 24px;
+}
+
+.search-hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
 }
 
 .search-form {
@@ -38,6 +45,53 @@
     opacity: 0.45;
     flex-shrink: 0;
   }
+}
+
+.btn-iniciar-dia {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #ffb81c, #f59e0b);
+  color: #003b7e;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(255, 184, 28, 0.35);
+  width: fit-content;
+  transition: transform 0.15s, box-shadow 0.15s;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 184, 28, 0.45);
+  }
+
+  .btn-icon {
+    font-size: 18px;
+  }
+
+  .btn-count {
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    border-radius: 11px;
+    background: #003b7e;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.meu-dia-aviso {
+  margin: 0;
+  font-size: 13px;
+  color: #005eb8;
+  max-width: 480px;
 }
 
 .hero-banner {
@@ -172,5 +226,10 @@
     width: 100%;
     max-width: none;
     margin-left: 0;
+  }
+
+  .btn-iniciar-dia {
+    width: 100%;
+    justify-content: center;
   }
 }

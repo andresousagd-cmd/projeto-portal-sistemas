@@ -3,6 +3,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { CATEGORIAS_CAIXA } from '../../core/constants/categorias';
 import { AuthService } from '../../core/services/auth.service';
 import { MeuDiaService } from '../../core/services/meu-dia.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-sidebar',
@@ -28,6 +29,8 @@ export class SidebarComponent {
     { path: '/home', label: 'Favoritos', icon: '★', fragment: 'favoritos' },
     { path: '/home', label: 'Lançamentos', icon: '🚀', fragment: 'lancamentos' },
   ];
+
+  readonly chatCaixaTeamsUrl = environment.chatCaixaTeamsUrl;
 
   toggleCategorias(): void {
     this.categoriasAbertas.update(v => !v);

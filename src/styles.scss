@@ -23,8 +23,13 @@
   --border: #334155;
 }
 
+/* Base rem = 14px em md; sm/lg escalam todo texto que use var(--fs-*) */
+html {
+  font-size: 14px;
+}
+
 html[data-font-size='sm'] {
-  font-size: 13px;
+  font-size: 12px;
 }
 
 html[data-font-size='md'] {
@@ -33,6 +38,21 @@ html[data-font-size='md'] {
 
 html[data-font-size='lg'] {
   font-size: 16px;
+}
+
+:root {
+  --fs-10: 0.714rem;
+  --fs-11: 0.786rem;
+  --fs-12: 0.857rem;
+  --fs-13: 0.929rem;
+  --fs-14: 1rem;
+  --fs-15: 1.071rem;
+  --fs-16: 1.143rem;
+  --fs-18: 1.286rem;
+  --fs-20: 1.429rem;
+  --fs-22: 1.571rem;
+  --fs-24: 1.714rem;
+  --fs-28: 2rem;
 }
 
 *,

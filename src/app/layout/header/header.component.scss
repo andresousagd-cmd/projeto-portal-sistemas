@@ -23,7 +23,7 @@
   min-height: 36px;
   padding: 0 20px;
   background: #003b7e;
-  font-size: 13px;
+  font-size: var(--fs-13);
 }
 
 .header-left,
@@ -53,7 +53,7 @@
 
 .system-name {
   margin: 0;
-  font-size: 15px;
+  font-size: var(--fs-15);
   line-height: 1.2;
   white-space: nowrap;
 
@@ -75,7 +75,7 @@
 
 .greeting-line {
   margin: 0;
-  font-size: 13px;
+  font-size: var(--fs-13);
 
   strong {
     font-weight: 700;
@@ -85,7 +85,7 @@
 
 .greeting-sub {
   margin: 2px 0 0;
-  font-size: 11px;
+  font-size: var(--fs-11);
   opacity: 0.85;
   white-space: nowrap;
   overflow: hidden;
@@ -120,12 +120,12 @@
 }
 
 .font-a {
-  font-size: 18px;
+  font-size: var(--fs-18);
   line-height: 1;
 }
 
 .font-size-num {
-  font-size: 10px;
+  font-size: var(--fs-10);
   font-weight: 600;
   margin-top: -6px;
 }
@@ -145,7 +145,7 @@
   border-radius: 4px;
   background: transparent;
   color: #fff;
-  font-size: 14px;
+  font-size: var(--fs-14);
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;

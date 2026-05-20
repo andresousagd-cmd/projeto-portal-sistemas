@@ -13,12 +13,12 @@
 .search-hero-actions {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: flex-end;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   flex: 0 0 auto;
-  width: 340px;
-  max-width: 340px;
+  width: 170px;
+  max-width: 170px;
   margin-left: auto;
 }
 
@@ -38,14 +38,14 @@
     flex: 1;
     border: none;
     padding: 10px 0;
-    font-size: 14px;
+    font-size: var(--fs-14);
     outline: none;
     background: transparent;
     min-width: 0;
   }
 
   .search-icon {
-    font-size: 16px;
+    font-size: var(--fs-16);
     margin-left: 8px;
     opacity: 0.45;
     flex-shrink: 0;
@@ -56,37 +56,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 5px;
   width: 100%;
-  min-height: 48px;
-  padding: 14px 20px;
+  min-height: 24px;
+  padding: 7px 10px;
   background: linear-gradient(135deg, #ffb81c, #f59e0b);
   color: #003b7e;
   border: none;
-  border-radius: 8px;
-  font-size: 15px;
+  border-radius: 6px;
+  font-size: var(--fs-12);
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(255, 184, 28, 0.35);
+  box-shadow: 0 1px 4px rgba(255, 184, 28, 0.35);
   transition: transform 0.15s, box-shadow 0.15s;
 
   &:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(255, 184, 28, 0.45);
+    box-shadow: 0 2px 6px rgba(255, 184, 28, 0.45);
   }
 
   .btn-icon {
-    font-size: 18px;
+    font-size: var(--fs-14);
   }
 
   .btn-count {
-    min-width: 22px;
-    height: 22px;
-    padding: 0 6px;
-    border-radius: 11px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 8px;
     background: #003b7e;
     color: #fff;
-    font-size: 12px;
+    font-size: var(--fs-10);
     font-weight: 700;
     display: inline-flex;
     align-items: center;
@@ -96,10 +96,11 @@
 
 .meu-dia-aviso {
   margin: 0;
-  font-size: 12px;
+  font-size: var(--fs-11);
   color: #005eb8;
-  text-align: center;
-  line-height: 1.4;
+  text-align: right;
+  line-height: 1.3;
+  max-width: 170px;
 }
 
 .sections-grid {
@@ -134,7 +135,7 @@
 
   h2 {
     margin: 0;
-    font-size: 16px;
+    font-size: var(--fs-16);
     font-weight: 600;
     color: #003b7e;
     display: flex;
@@ -143,12 +144,12 @@
   }
 
   .panel-icon {
-    font-size: 15px;
+    font-size: var(--fs-15);
   }
 }
 
 .ver-todos {
-  font-size: 13px;
+  font-size: var(--fs-13);
   font-weight: 500;
   color: #005eb8;
   text-decoration: none;
@@ -161,7 +162,7 @@
 
 .panel-empty {
   margin: 0;
-  font-size: 13px;
+  font-size: var(--fs-13);
   color: #94a3b8;
   padding: 8px 0;
 }

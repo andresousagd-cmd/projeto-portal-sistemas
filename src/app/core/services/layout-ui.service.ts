@@ -1,4 +1,4 @@
-import { Injectable, signal, effect } from '@angular/core';
+import { Injectable, signal, effect, computed } from '@angular/core';
 
 export type AppTheme = 'light' | 'dark';
 export type AppFontSize = 'sm' | 'md' | 'lg';
@@ -11,6 +11,10 @@ export class LayoutUiService {
   readonly sidebarOpen = signal(false);
   readonly theme = signal<AppTheme>(this.loadTheme());
   readonly fontSize = signal<AppFontSize>(this.loadFontSize());
+  readonly fontSizeLabel = computed(() => {
+    const labels: Record<AppFontSize, string> = { sm: '12', md: '14', lg: '16' };
+    return labels[this.fontSize()];
+  });
 
   private readonly fontOrder: AppFontSize[] = ['sm', 'md', 'lg'];
 
@@ -25,8 +29,9 @@ export class LayoutUiService {
   }
 
   private applyToDocument(): void {
-    document.documentElement.dataset['theme'] = this.theme();
-    document.documentElement.dataset['fontSize'] = this.fontSize();
+    const root = document.documentElement;
+    root.setAttribute('data-theme', this.theme());
+    root.setAttribute('data-font-size', this.fontSize());
   }
 
   toggleSidebar(): void {
@@ -45,11 +50,6 @@ export class LayoutUiService {
     const idx = this.fontOrder.indexOf(this.fontSize());
     const next = this.fontOrder[(idx + 1) % this.fontOrder.length];
     this.fontSize.set(next);
-  }
-
-  fontSizeLabel(): string {
-    const labels: Record<AppFontSize, string> = { sm: '12', md: '14', lg: '16' };
-    return labels[this.fontSize()];
   }
 
   private loadTheme(): AppTheme {

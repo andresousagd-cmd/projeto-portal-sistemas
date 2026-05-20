@@ -8,12 +8,12 @@
   display: inline-block;
   color: #005EB8;
   text-decoration: none;
-  font-size: 14px;
+  font-size: var(--fs-14);
   margin-bottom: 16px;
 }
 
 h1 {
-  font-size: 24px;
+  font-size: var(--fs-24);
   color: #003B7E;
   margin: 0 0 24px;
 }
@@ -51,8 +51,8 @@ h1 {
     flex-shrink: 0;
   }
 
-  h2 { margin: 0 0 4px; font-size: 18px; color: #003B7E; }
-  p { margin: 0; font-size: 14px; color: #64748B; }
+  h2 { margin: 0 0 4px; font-size: var(--fs-18); color: #003B7E; }
+  p { margin: 0; font-size: var(--fs-14); color: #64748B; }
 
   app-badge {
     position: absolute;
@@ -64,7 +64,7 @@ h1 {
 form {
   label {
     display: block;
-    font-size: 13px;
+    font-size: var(--fs-13);
     font-weight: 600;
     color: #475569;
     margin-bottom: 6px;
@@ -75,7 +75,7 @@ form {
     padding: 12px;
     border: 1px solid #CBD5E1;
     border-radius: 6px;
-    font-size: 14px;
+    font-size: var(--fs-14);
     font-family: inherit;
     resize: vertical;
     box-sizing: border-box;
@@ -88,12 +88,12 @@ form {
   }
 }
 
-.error { color: #DC2626; font-size: 13px; margin-bottom: 12px; }
+.error { color: #DC2626; font-size: var(--fs-13); margin-bottom: 12px; }
 
 .btn {
   padding: 12px 24px;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: var(--fs-14);
   font-weight: 600;
   cursor: pointer;
   border: none;
@@ -117,14 +117,14 @@ form {
 
   h3 {
     margin: 0 0 16px;
-    font-size: 16px;
+    font-size: var(--fs-16);
     color: #003B7E;
   }
 
   ol {
     margin: 0;
     padding-left: 20px;
-    font-size: 14px;
+    font-size: var(--fs-14);
     color: #475569;
     line-height: 1.8;
 

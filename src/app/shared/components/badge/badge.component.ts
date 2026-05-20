@@ -11,7 +11,7 @@ export type BadgeType = 'novo' | 'lancamento' | 'restrito' | 'liberado';
       display: inline-block;
       padding: 2px 8px;
       border-radius: 4px;
-      font-size: 11px;
+      font-size: var(--fs-11);
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.02em;

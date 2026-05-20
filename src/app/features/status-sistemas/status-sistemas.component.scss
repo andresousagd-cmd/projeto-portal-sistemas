@@ -8,13 +8,13 @@
 
   h1 {
     margin: 0 0 8px;
-    font-size: 24px;
+    font-size: var(--fs-24);
     color: #003b7e;
   }
 
   p {
     margin: 0;
-    font-size: 14px;
+    font-size: var(--fs-14);
     color: var(--text-muted);
   }
 }
@@ -29,7 +29,7 @@
 
   h2 {
     margin: 0 0 16px;
-    font-size: 16px;
+    font-size: var(--fs-16);
     font-weight: 600;
     color: #003b7e;
   }
@@ -47,7 +47,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 14px;
+    font-size: var(--fs-14);
     color: var(--text);
   }
 }
@@ -71,7 +71,7 @@
     padding: 12px 14px;
     border: 1px solid #cbd5e1;
     border-radius: 6px;
-    font-size: 14px;
+    font-size: var(--fs-14);
 
     &:focus {
       outline: none;
@@ -87,7 +87,7 @@
   color: #fff;
   border: none;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: var(--fs-14);
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
@@ -104,7 +104,7 @@
 
 .info {
   margin: 0;
-  font-size: 14px;
+  font-size: var(--fs-14);
   color: #64748b;
 }
 
@@ -148,25 +148,25 @@
     justify-content: center;
     color: #fff;
     font-weight: 700;
-    font-size: 13px;
+    font-size: var(--fs-13);
     flex-shrink: 0;
   }
 
   strong {
     display: block;
-    font-size: 15px;
+    font-size: var(--fs-15);
     color: #003b7e;
   }
 
   .sigla {
-    font-size: 13px;
+    font-size: var(--fs-13);
     color: #64748b;
     margin-left: 4px;
   }
 
   .categoria {
     display: block;
-    font-size: 12px;
+    font-size: var(--fs-12);
     color: #94a3b8;
     margin-top: 2px;
   }
@@ -188,18 +188,18 @@
 
   strong {
     display: block;
-    font-size: 14px;
+    font-size: var(--fs-14);
     margin-bottom: 4px;
   }
 
   p {
     margin: 0 0 4px;
-    font-size: 13px;
+    font-size: var(--fs-13);
     line-height: 1.4;
   }
 
   time {
-    font-size: 11px;
+    font-size: var(--fs-11);
     opacity: 0.8;
   }
 

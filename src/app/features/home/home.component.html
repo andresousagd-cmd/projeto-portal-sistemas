@@ -1,28 +1,26 @@
 <div class="home-page">
   <section class="search-hero">
-    <div class="search-hero-left">
     <form class="search-form" (ngSubmit)="onSearch()">
       <input
         type="search"
         [(ngModel)]="searchQuery"
         name="q"
-        placeholder="Pesquisar sistemas"
+        placeholder="Pesquisar sistemas por nome, sigla ou descrição..."
       />
       <span class="search-icon" aria-hidden="true">🔍</span>
     </form>
-    <button type="button" class="btn-iniciar-dia" (click)="iniciarMeuDia()">
-      <span class="btn-icon" aria-hidden="true">☀</span>
-      Iniciar meu dia
-      @if (meuDia.quantidade() > 0) {
-        <span class="btn-count">{{ meuDia.quantidade() }}</span>
+
+    <div class="search-hero-actions">
+      <button type="button" class="btn-iniciar-dia" (click)="iniciarMeuDia()">
+        <span class="btn-icon" aria-hidden="true">☀</span>
+        Iniciar meu dia
+        @if (meuDia.quantidade() > 0) {
+          <span class="btn-count">{{ meuDia.quantidade() }}</span>
+        }
+      </button>
+      @if (meuDiaAviso()) {
+        <p class="meu-dia-aviso">{{ meuDiaAviso() }}</p>
       }
-    </button>
-    @if (meuDiaAviso()) {
-      <p class="meu-dia-aviso">{{ meuDiaAviso() }}</p>
-    }
-    </div>
-    <div class="hero-banner">
-      <p>Acesso rápido e inteligente aos sistemas da Caixa.</p>
     </div>
   </section>
 
@@ -77,7 +75,7 @@
             <a routerLink="/home" fragment="recentes" class="ver-todos">Ver todos</a>
           </div>
           @if (data.ultimosAcessados.length) {
-            <div class="card-grid compact-grid">
+            <div class="ranked-list">
               @for (s of data.ultimosAcessados; track s.id) {
                 <app-sistema-card
                   [sistema]="s"
@@ -98,7 +96,7 @@
             <a routerLink="/search" class="ver-todos">Ver todos</a>
           </div>
           @if (data.maisAcessados.length) {
-            <div class="ranked-list">
+            <div class="ranked-list ranked-list-numbered">
               @for (s of data.maisAcessados; track s.id; let i = $index) {
                 <app-sistema-card
                   [sistema]="s"

@@ -23,7 +23,7 @@ export const MOCK_SISTEMAS: Sistema[] = [
     corIcone: '#64748B', lancamento: false, restrito: false, liberado: true, totalAcessos: 1420,
   },
   {
-    id: 4, nome: 'Plataforma CAIXA', sigla: 'PLTC', descricao: 'Gerenciamento do atendimento e emissão de senhas',
+    id: 4, nome: 'Plataforma CAIXA', sigla: 'PLTC', descricao: 'Gerenciamento do atendimento',
     categoria: 'Atendimento', areaResponsavel: 'Rede de Agências', urlAcesso: 'https://plataforma.caixa.gov.br',
     corIcone: '#FFB81C', lancamento: true, restrito: false, liberado: true, totalAcessos: 2340,
   },

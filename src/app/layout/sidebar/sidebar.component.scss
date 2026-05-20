@@ -12,8 +12,9 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 24px 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px 16px;
+  flex-shrink: 0;
+  overflow: hidden;
 
   .logo {
     width: 36px;
@@ -23,15 +24,25 @@
   }
 
   .brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    min-width: 0;
+    line-height: 1.2;
+  }
+
+  .brand-line {
+    display: block;
     font-size: 14px;
     font-weight: 600;
-    line-height: 1.3;
+  }
 
-    small {
-      font-weight: 400;
-      opacity: 0.85;
-      font-size: 12px;
-    }
+  small.brand-line {
+    font-weight: 400;
+    opacity: 0.85;
+    font-size: 12px;
+    line-height: 1.15;
   }
 }
 

@@ -1,0 +1,34 @@
+<div class="agente-page">
+  <header class="page-header">
+    <h1>Agente IA</h1>
+    <p>Assistente inteligente para apoio no uso dos sistemas e do portal.</p>
+  </header>
+
+  <section class="chat-panel">
+    <div class="chat-messages">
+      @for (msg of mensagens(); track $index) {
+        <div class="message" [class.usuario]="msg.autor === 'usuario'" [class.agente]="msg.autor === 'agente'">
+          <span class="message-label">{{ msg.autor === 'usuario' ? 'Você' : 'Agente IA' }}</span>
+          <p>{{ msg.texto }}</p>
+        </div>
+      }
+      @if (enviando()) {
+        <p class="typing">Agente IA está digitando...</p>
+      }
+    </div>
+
+    <form class="chat-form" (ngSubmit)="enviar()">
+      <input
+        type="text"
+        [(ngModel)]="pergunta"
+        name="pergunta"
+        placeholder="Digite sua pergunta..."
+        [disabled]="enviando()"
+        autocomplete="off"
+      />
+      <button type="submit" class="btn-enviar" [disabled]="enviando() || !pergunta.trim()">
+        Enviar
+      </button>
+    </form>
+  </section>
+</div>

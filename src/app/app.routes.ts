@@ -32,6 +32,11 @@ export const routes: Routes = [
           import('./features/meu-dia/meu-dia.component').then(m => m.MeuDiaComponent),
       },
       {
+        path: 'agente-ia',
+        loadComponent: () =>
+          import('./features/agente-ia/agente-ia.component').then(m => m.AgenteIaComponent),
+      },
+      {
         path: 'solicitar-acesso',
         loadComponent: () =>
           import('./features/solicitar-acesso/solicitar-acesso.component').then(m => m.SolicitarAcessoComponent),
